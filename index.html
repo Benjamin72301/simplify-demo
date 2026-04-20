@@ -1,0 +1,887 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Simplify – The UK's Leading Conveyancing & Property Services Group</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --navy:       #0d2b45;
+      --blue:       #1a5f96;
+      --sky:        #3a8fc4;
+      --gold:       #c8a04a;
+      --offwhite:   #f7f5f2;
+      --light:      #edf3f8;
+      --text:       #1e2a35;
+      --muted:      #5c6e7e;
+      --white:      #ffffff;
+    }
+
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      background: var(--white);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    /* ── TOP BAR ── */
+    .topbar {
+      background: var(--navy);
+      color: rgba(255,255,255,0.65);
+      font-size: 12px;
+      padding: 8px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      letter-spacing: 0.03em;
+    }
+    .topbar a { color: rgba(255,255,255,0.65); text-decoration: none; margin-left: 20px; }
+    .topbar a:hover { color: var(--gold); }
+
+    /* ── HEADER ── */
+    header {
+      background: var(--white);
+      padding: 0 40px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 72px;
+      border-bottom: 1px solid rgba(0,0,0,0.07);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 1px 12px rgba(13,43,69,0.08);
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+    }
+    .logo-mark {
+      width: 36px;
+      height: 36px;
+      background: var(--blue);
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Playfair Display', serif;
+      font-weight: 700;
+      font-size: 20px;
+      color: white;
+    }
+    .logo-text {
+      font-family: 'Playfair Display', serif;
+      font-size: 22px;
+      font-weight: 700;
+      color: var(--navy);
+      letter-spacing: -0.02em;
+    }
+
+    nav {
+      display: flex;
+      gap: 32px;
+      align-items: center;
+    }
+    nav a {
+      text-decoration: none;
+      color: var(--text);
+      font-size: 14px;
+      font-weight: 500;
+      letter-spacing: 0.01em;
+      transition: color 0.2s;
+    }
+    nav a:hover { color: var(--blue); }
+
+    .btn-primary {
+      background: var(--blue);
+      color: white;
+      padding: 10px 22px;
+      border-radius: 6px;
+      font-size: 14px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: background 0.2s, transform 0.15s;
+      border: none;
+      cursor: pointer;
+      letter-spacing: 0.01em;
+    }
+    .btn-primary:hover { background: var(--navy); transform: translateY(-1px); }
+
+    .btn-ghost {
+      background: transparent;
+      color: var(--blue);
+      border: 2px solid var(--blue);
+      padding: 10px 22px;
+      border-radius: 6px;
+      font-size: 14px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.2s;
+      cursor: pointer;
+    }
+    .btn-ghost:hover { background: var(--blue); color: white; }
+
+    /* ── HERO ── */
+    .hero {
+      background: var(--navy);
+      position: relative;
+      overflow: hidden;
+      padding: 90px 40px 80px;
+      display: flex;
+      align-items: center;
+      min-height: 520px;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -100px; right: -100px;
+      width: 600px; height: 600px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(58,143,196,0.25) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .hero::after {
+      content: '';
+      position: absolute;
+      bottom: -80px; left: 30%;
+      width: 400px; height: 400px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(200,160,74,0.1) 0%, transparent 70%);
+      pointer-events: none;
+    }
+
+    .hero-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+      width: 100%;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: center;
+    }
+
+    .hero-content { position: relative; z-index: 2; }
+
+    .hero-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(200,160,74,0.15);
+      border: 1px solid rgba(200,160,74,0.3);
+      color: var(--gold);
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 6px 14px;
+      border-radius: 20px;
+      margin-bottom: 24px;
+    }
+
+    .hero h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 52px;
+      font-weight: 700;
+      color: white;
+      line-height: 1.12;
+      letter-spacing: -0.02em;
+      margin-bottom: 20px;
+    }
+
+    .hero h1 em {
+      font-style: italic;
+      color: var(--gold);
+    }
+
+    .hero p {
+      font-size: 17px;
+      color: rgba(255,255,255,0.72);
+      max-width: 480px;
+      margin-bottom: 36px;
+      line-height: 1.7;
+      font-weight: 300;
+    }
+
+    .hero-actions { display: flex; gap: 14px; flex-wrap: wrap; }
+
+    .btn-gold {
+      background: var(--gold);
+      color: var(--navy);
+      padding: 13px 28px;
+      border-radius: 6px;
+      font-size: 15px;
+      font-weight: 700;
+      text-decoration: none;
+      transition: all 0.2s;
+      letter-spacing: 0.01em;
+    }
+    .btn-gold:hover { background: #d4ac54; transform: translateY(-2px); box-shadow: 0 8px 24px rgba(200,160,74,0.3); }
+
+    .btn-outline-white {
+      background: transparent;
+      color: white;
+      border: 1.5px solid rgba(255,255,255,0.4);
+      padding: 13px 28px;
+      border-radius: 6px;
+      font-size: 15px;
+      font-weight: 500;
+      text-decoration: none;
+      transition: all 0.2s;
+    }
+    .btn-outline-white:hover { border-color: white; background: rgba(255,255,255,0.08); }
+
+    /* Hero stats */
+    .hero-stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      background: rgba(255,255,255,0.08);
+      border-radius: 12px;
+      overflow: hidden;
+      margin-top: 48px;
+    }
+    .stat {
+      background: rgba(255,255,255,0.04);
+      padding: 20px 18px;
+      text-align: center;
+    }
+    .stat-num {
+      font-family: 'Playfair Display', serif;
+      font-size: 28px;
+      font-weight: 700;
+      color: var(--gold);
+      line-height: 1;
+    }
+    .stat-label { font-size: 11px; color: rgba(255,255,255,0.5); margin-top: 4px; letter-spacing: 0.05em; text-transform: uppercase; }
+
+    /* Hero illustration panel */
+    .hero-visual {
+      position: relative;
+      z-index: 2;
+    }
+    .hero-card {
+      background: white;
+      border-radius: 16px;
+      padding: 28px;
+      box-shadow: 0 24px 60px rgba(0,0,0,0.3);
+    }
+    .hero-card-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 18px;
+      color: var(--navy);
+      margin-bottom: 20px;
+      font-weight: 600;
+    }
+    .step-row {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding: 12px 0;
+      border-bottom: 1px solid #f0f0f0;
+    }
+    .step-row:last-child { border-bottom: none; }
+    .step-dot {
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 13px;
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+    .step-dot.done { background: #e6f4ea; color: #2e7d32; }
+    .step-dot.active { background: var(--blue); color: white; }
+    .step-dot.pending { background: #f5f5f5; color: #aaa; }
+    .step-info { flex: 1; }
+    .step-name { font-size: 13px; font-weight: 600; color: var(--text); }
+    .step-sub { font-size: 11px; color: var(--muted); margin-top: 1px; }
+    .step-badge {
+      font-size: 10px;
+      font-weight: 700;
+      padding: 3px 8px;
+      border-radius: 10px;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+    }
+    .badge-green { background: #e6f4ea; color: #2e7d32; }
+    .badge-blue { background: #e3f0fb; color: var(--blue); }
+    .badge-grey { background: #f5f5f5; color: #888; }
+
+    /* ── TRUST BAR ── */
+    .trust-bar {
+      background: var(--offwhite);
+      border-bottom: 1px solid rgba(0,0,0,0.05);
+      padding: 18px 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 48px;
+      flex-wrap: wrap;
+    }
+    .trust-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 13px;
+      color: var(--muted);
+      font-weight: 500;
+    }
+    .trust-icon { font-size: 18px; }
+
+    /* ── SECTION STRUCTURE ── */
+    section { padding: 80px 40px; }
+    .section-inner { max-width: 1200px; margin: 0 auto; }
+    .section-label {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--sky);
+      margin-bottom: 12px;
+    }
+    .section-title {
+      font-family: 'Playfair Display', serif;
+      font-size: 40px;
+      font-weight: 700;
+      color: var(--navy);
+      line-height: 1.2;
+      letter-spacing: -0.02em;
+      margin-bottom: 14px;
+    }
+    .section-sub {
+      font-size: 17px;
+      color: var(--muted);
+      max-width: 560px;
+      font-weight: 300;
+      line-height: 1.7;
+      margin-bottom: 48px;
+    }
+
+    /* ── SERVICES ── */
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+    .service-card {
+      background: var(--white);
+      border: 1px solid rgba(0,0,0,0.07);
+      border-radius: 14px;
+      padding: 32px 28px;
+      transition: all 0.25s;
+      cursor: pointer;
+    }
+    .service-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 16px 40px rgba(13,43,69,0.1);
+      border-color: rgba(26,95,150,0.2);
+    }
+    .service-icon {
+      width: 52px;
+      height: 52px;
+      border-radius: 12px;
+      background: var(--light);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 24px;
+      margin-bottom: 20px;
+    }
+    .service-card h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 20px;
+      font-weight: 600;
+      color: var(--navy);
+      margin-bottom: 10px;
+    }
+    .service-card p {
+      font-size: 14px;
+      color: var(--muted);
+      line-height: 1.65;
+    }
+    .service-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      margin-top: 18px;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--blue);
+      text-decoration: none;
+      letter-spacing: 0.01em;
+    }
+    .service-link:hover { color: var(--navy); }
+
+    /* ── PROCESS ── */
+    .process-section { background: var(--navy); }
+    .process-section .section-title { color: white; }
+    .process-section .section-sub { color: rgba(255,255,255,0.6); }
+    .process-section .section-label { color: var(--gold); }
+
+    .process-steps {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 0;
+      position: relative;
+    }
+    .process-steps::before {
+      content: '';
+      position: absolute;
+      top: 32px;
+      left: 12.5%;
+      width: 75%;
+      height: 1px;
+      background: rgba(255,255,255,0.12);
+      z-index: 0;
+    }
+    .process-step {
+      position: relative;
+      z-index: 1;
+      text-align: center;
+      padding: 0 20px;
+    }
+    .process-num {
+      width: 64px;
+      height: 64px;
+      border-radius: 50%;
+      background: rgba(255,255,255,0.08);
+      border: 2px solid rgba(255,255,255,0.15);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Playfair Display', serif;
+      font-size: 22px;
+      font-weight: 700;
+      color: white;
+      margin: 0 auto 20px;
+    }
+    .process-step.active .process-num {
+      background: var(--gold);
+      border-color: var(--gold);
+      color: var(--navy);
+    }
+    .process-step h4 {
+      font-family: 'Playfair Display', serif;
+      font-size: 17px;
+      font-weight: 600;
+      color: white;
+      margin-bottom: 8px;
+    }
+    .process-step p {
+      font-size: 13px;
+      color: rgba(255,255,255,0.5);
+      line-height: 1.6;
+    }
+
+    /* ── BRANDS ── */
+    .brands-section { background: var(--offwhite); }
+    .brands-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 16px;
+    }
+    .brand-tile {
+      background: white;
+      border-radius: 10px;
+      padding: 24px;
+      text-align: center;
+      border: 1px solid rgba(0,0,0,0.06);
+      transition: all 0.2s;
+    }
+    .brand-tile:hover { box-shadow: 0 4px 16px rgba(0,0,0,0.08); transform: translateY(-2px); }
+    .brand-tile-icon { font-size: 28px; margin-bottom: 10px; }
+    .brand-tile-name { font-size: 13px; font-weight: 600; color: var(--navy); }
+    .brand-tile-type { font-size: 11px; color: var(--muted); margin-top: 3px; }
+
+    /* ── CTA STRIP ── */
+    .cta-strip {
+      background: linear-gradient(135deg, var(--blue) 0%, var(--navy) 100%);
+      padding: 64px 40px;
+      text-align: center;
+    }
+    .cta-strip h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 36px;
+      color: white;
+      font-weight: 700;
+      margin-bottom: 12px;
+      letter-spacing: -0.02em;
+    }
+    .cta-strip p {
+      font-size: 16px;
+      color: rgba(255,255,255,0.7);
+      margin-bottom: 32px;
+      font-weight: 300;
+    }
+    .cta-actions {
+      display: flex;
+      gap: 14px;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      background: #0a2036;
+      color: rgba(255,255,255,0.4);
+      padding: 48px 40px 28px;
+    }
+    .footer-inner {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 40px;
+      padding-bottom: 36px;
+      border-bottom: 1px solid rgba(255,255,255,0.07);
+      margin-bottom: 24px;
+    }
+    .footer-brand p {
+      font-size: 13px;
+      line-height: 1.7;
+      max-width: 260px;
+      margin-top: 12px;
+    }
+    .footer-col h4 {
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.7);
+      margin-bottom: 14px;
+    }
+    .footer-col a {
+      display: block;
+      color: rgba(255,255,255,0.4);
+      text-decoration: none;
+      font-size: 13px;
+      margin-bottom: 8px;
+      transition: color 0.2s;
+    }
+    .footer-col a:hover { color: rgba(255,255,255,0.8); }
+    .footer-bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 12px;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+    .footer-bottom a { color: rgba(255,255,255,0.4); text-decoration: none; margin-left: 16px; }
+    .footer-bottom a:hover { color: rgba(255,255,255,0.7); }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 900px) {
+      .hero-inner { grid-template-columns: 1fr; }
+      .hero-visual { display: none; }
+      .hero h1 { font-size: 38px; }
+      .services-grid { grid-template-columns: 1fr; }
+      .process-steps { grid-template-columns: 1fr 1fr; gap: 30px; }
+      .process-steps::before { display: none; }
+      .brands-grid { grid-template-columns: repeat(2, 1fr); }
+      .footer-grid { grid-template-columns: 1fr 1fr; }
+      nav { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- TOP BAR -->
+  <div class="topbar">
+    <span>🏠 The UK's leading independent conveyancing & property services group</span>
+    <div>
+      <a href="#">About Us</a>
+      <a href="#">News</a>
+      <a href="#">Careers</a>
+      <a href="#">Contact</a>
+    </div>
+  </div>
+
+  <!-- HEADER -->
+  <header>
+    <a class="logo" href="#">
+      <div class="logo-mark">S</div>
+      <span class="logo-text">Simplify</span>
+    </a>
+    <nav>
+      <a href="#">Services</a>
+      <a href="#">Our Brands</a>
+      <a href="#">Introducers</a>
+      <a href="#">House Builders</a>
+      <a href="#">News</a>
+    </nav>
+    <div style="display:flex;gap:10px">
+      <a href="#" class="btn-ghost">Track My Case</a>
+      <a href="#" class="btn-primary">Get a Quote</a>
+    </div>
+  </header>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-inner">
+      <div class="hero-content">
+        <div class="hero-eyebrow">
+          ✦ Trusted by 1,500+ professionals
+        </div>
+        <h1>Moving home<br><em>made simple.</em></h1>
+        <p>We combine legal expertise, innovative technology and outstanding customer care to help hundreds of thousands of families move home every year.</p>
+        <div class="hero-actions">
+          <a href="#" class="btn-gold">Get a Free Quote</a>
+          <a href="#" class="btn-outline-white">Track Your Case</a>
+        </div>
+
+        <div class="hero-stats">
+          <div class="stat">
+            <div class="stat-num">6%</div>
+            <div class="stat-label">of all UK home moves</div>
+          </div>
+          <div class="stat">
+            <div class="stat-num">1,500+</div>
+            <div class="stat-label">legal professionals</div>
+          </div>
+          <div class="stat">
+            <div class="stat-num">4.6★</div>
+            <div class="stat-label">Trustpilot rating</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-visual">
+        <div class="hero-card">
+          <div class="hero-card-title">Your Conveyancing Journey</div>
+          <div class="step-row">
+            <div class="step-dot done">✓</div>
+            <div class="step-info">
+              <div class="step-name">Instruction Received</div>
+              <div class="step-sub">14 Apr 2026 · Premier Property Lawyers</div>
+            </div>
+            <span class="step-badge badge-green">Complete</span>
+          </div>
+          <div class="step-row">
+            <div class="step-dot done">✓</div>
+            <div class="step-info">
+              <div class="step-name">Searches & Enquiries</div>
+              <div class="step-sub">Local authority, drainage, environmental</div>
+            </div>
+            <span class="step-badge badge-green">Complete</span>
+          </div>
+          <div class="step-row">
+            <div class="step-dot active">3</div>
+            <div class="step-info">
+              <div class="step-name">Contract Exchange</div>
+              <div class="step-sub">Anticipated: 22 Apr 2026</div>
+            </div>
+            <span class="step-badge badge-blue">In Progress</span>
+          </div>
+          <div class="step-row">
+            <div class="step-dot pending">4</div>
+            <div class="step-info">
+              <div class="step-name">Completion Day</div>
+              <div class="step-sub">Target: 30 Apr 2026</div>
+            </div>
+            <span class="step-badge badge-grey">Pending</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TRUST BAR -->
+  <div class="trust-bar">
+    <div class="trust-item"><span class="trust-icon">🏆</span> Award-Winning Service</div>
+    <div class="trust-item"><span class="trust-icon">🔒</span> SRA Regulated</div>
+    <div class="trust-item"><span class="trust-icon">⚡</span> Fast-Track Completions</div>
+    <div class="trust-item"><span class="trust-icon">💬</span> Dedicated Case Handler</div>
+    <div class="trust-item"><span class="trust-icon">📱</span> 24/7 Case Tracking</div>
+    <div class="trust-item"><span class="trust-icon">🇬🇧</span> 8 UK Locations</div>
+  </div>
+
+  <!-- SERVICES -->
+  <section>
+    <div class="section-inner">
+      <div class="section-label">What We Do</div>
+      <div style="display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:20px;margin-bottom:48px">
+        <div>
+          <div class="section-title">Expert services across<br>the entire property journey</div>
+        </div>
+        <a href="#" class="btn-primary">View All Services</a>
+      </div>
+
+      <div class="services-grid">
+        <div class="service-card">
+          <div class="service-icon">⚖️</div>
+          <h3>Introducer Conveyancing</h3>
+          <p>We help estate agents, financial intermediaries and lenders grow their businesses by managing all aspects of conveyancing. Partners see up to 40% more conveyancing income.</p>
+          <a href="#" class="service-link">Learn more →</a>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">🏗️</div>
+          <h3>Property Services</h3>
+          <p>House builders, probate administrators and lenders trust us to sell and manage properties efficiently through Move with Us and Moving Made Easy.</p>
+          <a href="#" class="service-link">Learn more →</a>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">🏡</div>
+          <h3>Consumer Services</h3>
+          <p>Direct access to our network of market-leading conveyancing brands. Fast, transparent, and supported every step of the way through your move.</p>
+          <a href="#" class="service-link">Learn more →</a>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">📋</div>
+          <h3>Panel Management</h3>
+          <p>Sophisticated panel management technology that improves conversion rates, delivers consistent quality, and provides complete transparency throughout.</p>
+          <a href="#" class="service-link">Learn more →</a>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">🔎</div>
+          <h3>Searches & Due Diligence</h3>
+          <p>Comprehensive property searches including local authority, drainage, environmental and flood reports, delivered with speed and accuracy.</p>
+          <a href="#" class="service-link">Learn more →</a>
+        </div>
+        <div class="service-card">
+          <div class="service-icon">💼</div>
+          <h3>Probate & Estate Sales</h3>
+          <p>Specialist services for executors and administrators, providing sensitive, efficient management of property sales during the probate process.</p>
+          <a href="#" class="service-link">Learn more →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROCESS -->
+  <section class="process-section">
+    <div class="section-inner">
+      <div class="section-label">How It Works</div>
+      <div class="section-title" style="margin-bottom:14px">Your move in four steps</div>
+      <div class="section-sub">Our proven process keeps you informed and in control, from instruction through to completion day.</div>
+
+      <div class="process-steps">
+        <div class="process-step">
+          <div class="process-num">1</div>
+          <h4>Get a Quote</h4>
+          <p>Instant, transparent pricing with no hidden fees. Choose your Simplify brand and solicitor team.</p>
+        </div>
+        <div class="process-step active">
+          <div class="process-num">2</div>
+          <h4>Instruct & Begin</h4>
+          <p>Your dedicated case handler is assigned immediately and searches are ordered the same day.</p>
+        </div>
+        <div class="process-step">
+          <div class="process-num">3</div>
+          <h4>Exchange Contracts</h4>
+          <p>All enquiries resolved, deposit confirmed and a completion date legally agreed with all parties.</p>
+        </div>
+        <div class="process-step">
+          <div class="process-num">4</div>
+          <h4>Completion Day</h4>
+          <p>Funds transferred, keys released. We're there every step to ensure it goes smoothly.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BRANDS -->
+  <section class="brands-section">
+    <div class="section-inner">
+      <div class="section-label">Our Group</div>
+      <div class="section-title">Market-leading brands<br>under one roof</div>
+      <div class="section-sub">Eight specialist businesses combining to offer the most comprehensive property services group in the UK.</div>
+
+      <div class="brands-grid">
+        <div class="brand-tile"><div class="brand-tile-icon">⚖️</div><div class="brand-tile-name">Premier Property Lawyers</div><div class="brand-tile-type">Conveyancing</div></div>
+        <div class="brand-tile"><div class="brand-tile-icon">📜</div><div class="brand-tile-name">Advantage Property Lawyers</div><div class="brand-tile-type">Conveyancing</div></div>
+        <div class="brand-tile"><div class="brand-tile-icon">🏡</div><div class="brand-tile-name">My Home Move</div><div class="brand-tile-type">Consumer Conveyancing</div></div>
+        <div class="brand-tile"><div class="brand-tile-icon">🚛</div><div class="brand-tile-name">Move with Us</div><div class="brand-tile-type">Property Services</div></div>
+        <div class="brand-tile"><div class="brand-tile-icon">🔑</div><div class="brand-tile-name">DC Law</div><div class="brand-tile-type">Legal Services</div></div>
+        <div class="brand-tile"><div class="brand-tile-icon">⚖️</div><div class="brand-tile-name">Gordon Brown Law</div><div class="brand-tile-type">Legal Services</div></div>
+        <div class="brand-tile"><div class="brand-tile-icon">📋</div><div class="brand-tile-name">JS Law</div><div class="brand-tile-type">Conveyancing</div></div>
+        <div class="brand-tile"><div class="brand-tile-icon">🏠</div><div class="brand-tile-name">Moving Made Easy</div><div class="brand-tile-type">Property Services</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA STRIP -->
+  <div class="cta-strip">
+    <div class="section-inner" style="text-align:center">
+      <h2>Ready to get moving?</h2>
+      <p>Get an instant quote today, or speak to our team to find the right solution for you.</p>
+      <div class="cta-actions">
+        <a href="#" class="btn-gold">Get a Free Quote</a>
+        <a href="#" class="btn-outline-white">Talk to an Expert</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div style="display:flex;align-items:center;gap:10px;margin-bottom:4px">
+            <div style="width:28px;height:28px;background:var(--blue);border-radius:6px;display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',serif;font-weight:700;font-size:15px;color:white">S</div>
+            <span style="font-family:'Playfair Display',serif;font-size:18px;font-weight:700;color:rgba(255,255,255,0.8)">Simplify</span>
+          </div>
+          <p>The UK's leading independent conveyancing and property services group. Helping hundreds of thousands of families move home every year.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Services</h4>
+          <a href="#">Conveyancing</a>
+          <a href="#">Property Services</a>
+          <a href="#">Panel Management</a>
+          <a href="#">Probate</a>
+        </div>
+        <div class="footer-col">
+          <h4>Company</h4>
+          <a href="#">About Us</a>
+          <a href="#">Our Brands</a>
+          <a href="#">Careers</a>
+          <a href="#">News</a>
+        </div>
+        <div class="footer-col">
+          <h4>Support</h4>
+          <a href="#">Track My Case</a>
+          <a href="#">Contact Us</a>
+          <a href="#">Find a Branch</a>
+          <a href="#">Client Portal</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2026 Simplify Group Limited. All rights reserved. Authorised and regulated by the Solicitors Regulation Authority.</span>
+        <div>
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms</a>
+          <a href="#">Accessibility</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- NATTERBOX CHAT WIDGET -->
+  <script>
+    window.NatterboxChatWidget_Config = {
+      liveChatNumber: "c1ec53f2575d4aa31",
+      apiUrl: "https://livechat-us.natterbox.net",
+      wsUrl: "wss://livechatws-us.natterbox.net",
+      chatWidgetName: "BL Chat Channel"
+    };
+  </script>
+  <script src="https://omni-chat-widget.natterbox.net/widget.js"></script>
+
+</body>
+</html>
